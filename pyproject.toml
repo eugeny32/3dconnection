@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spacemouse-bridge"
+version = "0.1.0"
+description = "Universal HID bridge that turns 3Dconnexion SpaceMouse input into navigation gestures for unsupported applications."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "hid>=1.0.5",
+    "tomli-w>=1.0",
+    "psutil>=5.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+spacemouse-bridge = "spacemouse_bridge.app.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["spacemouse_bridge*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
