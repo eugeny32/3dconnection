@@ -10,4 +10,5 @@ venv/
 .mypy_cache/
 .ruff_cache/
 *.jsonl
+!tests/fixtures/*.jsonl
 .DS_Store

@@ -26,5 +26,8 @@ spacemouse-bridge = "spacemouse_bridge.app.cli:main"
 [tool.setuptools.packages.find]
 include = ["spacemouse_bridge*"]
 
+[tool.setuptools.package-data]
+spacemouse_bridge = ["device_ids.toml", "profiles/*.toml"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,0 +1,10 @@
+# Known SpaceMouse device identifiers, captured via
+# `python -m spacemouse_bridge.device.enumerate` against real hardware.
+#
+# Never hardcode VID/PID in source (see CLAUDE.md) -- add new devices here
+# as they get tested, with the exact values from `enumerate`'s output.
+
+[[devices]]
+name = "SpaceMouse Pro"
+vendor_id = 0x046D
+product_id = 0xC62B
