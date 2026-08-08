@@ -16,12 +16,32 @@ HID-репорты и превращает 6DoF-отклонения в нави
 
 ## Разработка
 
+Пакет `hid` — это ctypes-обёртка над нативной библиотекой hidapi, её нужно
+поставить отдельно от pip-пакета:
+
+- **Windows:** `hidapi.dll` обычно уже доступна вместе с `hid`; если импорт
+  падает — скачать `hidapi` с https://github.com/libusb/hidapi/releases и
+  положить DLL рядом с интерпретатором.
+- **Linux (Debian/Ubuntu):** `sudo apt-get install libhidapi-hidraw0`
+- **macOS:** `brew install hidapi`
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # или .venv\Scripts\activate на Windows
 pip install -e ".[dev]"
 pytest -q
 ```
+
+## Определение подключённого устройства
+
+```bash
+python -m spacemouse_bridge.device.enumerate
+```
+
+Выведет таблицу всех HID-устройств (VID/PID/usage page/производитель/продукт).
+Устройства с известными VID 3Dconnexion/Logitech помечаются в колонке Note —
+но PID оттуда руками переносится в `device_ids.toml` (см. `CLAUDE.md`), в коде
+он не хардкодится.
 
 ## Правовой аспект
 
